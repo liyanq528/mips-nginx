@@ -14,6 +14,8 @@ RUN ln -s /usr/share/nginx/html ./
 RUN ln -s /etc/nginx/nginx.conf ./conf/
 RUN cp ./conf/mime.types /etc/nginx/mine.types
 
-CMD ["./sbin/nginx"]
+WORKDIR /usr/local/nginx/sbin
 
 EXPOSE 80
+
+ENTRYPOINT ["./nginx","-g","daemon off;"]
